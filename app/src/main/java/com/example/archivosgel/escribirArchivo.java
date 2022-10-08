@@ -61,8 +61,8 @@ public class escribirArchivo extends AppCompatActivity {
         try {
             miArchivo = new OutputStreamWriter(openFileOutput("myFile.txt",Context.MODE_PRIVATE));
             Toast.makeText(this,"Archivo Creado",Toast.LENGTH_SHORT).show();
-            miArchivo.write("Felipe,24,Santiago de cali" + "\n");
-            miArchivo.write("Andres,22,Santiago de Cali" + "\n");
+            miArchivo.write("Felipe;24;Santiago de cali" + "\n");
+            miArchivo.write("Andres;22;Santiago de Cali" + "\n");
             miArchivo.flush();
             miArchivo.close();
 

@@ -13,5 +13,11 @@
         android:layout_height="wrap_content"
         android:text="Escritura"/>
 
+    <Button
+        android:id="@+id/BaseDeDatos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Base de datos"/>
+
 
 </LinearLayout>
