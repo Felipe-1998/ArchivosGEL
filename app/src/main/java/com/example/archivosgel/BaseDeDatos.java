@@ -12,8 +12,10 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-
+ //https://www.develou.com/android-sqlite-bases-de-datos/
 public class BaseDeDatos extends AppCompatActivity {
 
     @Override
@@ -33,12 +35,13 @@ public class BaseDeDatos extends AppCompatActivity {
             for(int i = 0; i< texto.length; i++){
                 String[] linea = texto[i].split(";");
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("Nombre", linea[0]);
-                contentValues.put("Edad", linea[1]);
-                contentValues.put("Ciudad", linea[2]);
+                contentValues.put("Telefono",linea[0]);
+                contentValues.put("Nombre", linea[1]);
+                contentValues.put("Edad", linea[2]);
+                contentValues.put("Ciudad", linea[3]);
                 db.insert("Personas",null, contentValues);
             }
-            Toast.makeText(this,"Registros insertados!!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Registros insertados!!!" + texto.length, Toast.LENGTH_SHORT).show();
             db.setTransactionSuccessful();
             db.endTransaction();
         } else {
@@ -56,15 +59,18 @@ public class BaseDeDatos extends AppCompatActivity {
 
     private String[] leerArchivo(){
         InputStreamReader isr;
+        //InputStream is;
         ByteArrayOutputStream baos = null;
         try {
             isr = new InputStreamReader(openFileInput("myFile.txt"));
+            //is = getResources().openRawResource(R.raw.registros);
             baos = new ByteArrayOutputStream();
             int i = isr.read();
             while(i != -1){
                 baos.write(i);
                 i = isr.read();
             }
+            Toast.makeText(this,i,Toast.LENGTH_SHORT).show();
             isr.close();
         } catch (Exception e) {
             e.printStackTrace();

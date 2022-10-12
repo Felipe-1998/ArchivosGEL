@@ -1,0 +1,10 @@
+Felipe;24;Cali
+Carlos;23;Cucuta
+Jesus;24;Cartagena
+Camilo;25;Armenia
+Valery;22;Cali
+Juan;21;Cali
+Dayanna;22;itagui
+Nicol;20;Bello
+Michel;22;Bello
+Maria;24;Madrid

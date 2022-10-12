@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class BaseHelper extends SQLiteOpenHelper {
 
-    String tabla = "create table Personas(Id integer Primary Key, Nombre text, Edad text,Ciudad text)";
+    private static final String tabla = "create table Personas(Id integer Primary Key Autoincrement, Telefono text, Nombre text, Edad text,Ciudad text)";
 
     public BaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -22,6 +22,7 @@ public class BaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //db.execSQL("DROP TABLE IF EXISTS Persona");
+        //onCreate(db);
     }
 }

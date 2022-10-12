@@ -2,14 +2,16 @@ package com.example.archivosgel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button escritura, base;
+    Button escritura, base, consulta;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +19,15 @@ public class MainActivity extends AppCompatActivity {
 
         escritura = findViewById(R.id.Escritura);
         base = findViewById(R.id.BaseDeDatos);
+        consulta = findViewById(R.id.Consultar);
         escritura.setOnClickListener( v -> irEscritura());
         base.setOnClickListener(v -> irBaseDeDatos());
+        consulta.setOnClickListener(v -> irConsulta());
+    }
+
+    private void irConsulta() {
+        Intent i = new Intent(this,ConsultaBase.class);
+        startActivity(i);
     }
 
     private void irBaseDeDatos() {
